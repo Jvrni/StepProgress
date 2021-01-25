@@ -1,0 +1,10 @@
+apply from: "$rootDir/config-default.gradle"
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation generalDeps.appcompat
+    implementation generalDeps.materialDesign
+    implementation generalDeps.constraintlayout
+
+    implementation generalDeps.jwt
+}

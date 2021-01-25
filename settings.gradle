@@ -1,0 +1,3 @@
+include ':stepprogresscore'
+include ':app'
+rootProject.name = "StepProgress"

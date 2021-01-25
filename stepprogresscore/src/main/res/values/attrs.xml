@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="item_count" format="integer" />
+    <attr name="span_count" format="integer" />
+    <attr name="color_selected" format="color|reference" />
+    <attr name="color_un_selected" format="color|reference" />
+    <attr name="view_type" format="integer" >
+        <flag name="line" value="0" />
+        <flag name="rounded" value="1" />
+    </attr>
+
+    <declare-styleable name="StepProgress">
+        <attr name="item_count" />
+        <attr name="span_count" />
+        <attr name="color_selected" />
+        <attr name="color_un_selected" />
+        <attr name="view_type" />
+    </declare-styleable>
+</resources>

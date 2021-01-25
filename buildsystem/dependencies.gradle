@@ -1,0 +1,107 @@
+// This file contains all project dependencies
+
+// Gradle:
+def gradle_version = '4.1.0'
+
+// Kotlin:
+def kotlin_version = '1.3.72'
+
+// Android Support:
+def support_version = '1.1.0'
+def material_design_version = '1.0.0'
+def core_version = '1.3.0'
+def constraint_version = '2.0.0-beta3'
+
+// Arch Components:
+def arch_components_version = "2.1.0"
+def arch_components_lifecycle_version = "2.3.0"
+
+// DB:
+def debug_db_version = '1.0.6'
+
+// JUnit:
+def junit_version = '4.12'
+def junit_runner_version = '1.2.0'
+def assertj_version = '3.10.0'
+
+// Expresso:
+def espresso_version = '3.2.0'
+
+// Networking:
+def jwt_version = '0.9.1'
+
+// JSON
+def json_version = '20180130'
+
+
+// implementation / api ====
+
+ext.app = [
+        minSdkVersion    : 23,
+        targetSdkVersion : 29,
+        compileSdkVersion: 29,
+        versionCode: 1,
+        versionName: "1.0"
+]
+
+ext.dimensions = [
+        env    : "env"
+]
+
+ext.generalDeps = [
+        // Kotlin:
+        kotlinJdk                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+
+        // DB (IMPORTANT: Use debugImplementation to avoid security problems):
+        debugDb                  : "com.amitshekhar.android:debug-db:$debug_db_version",
+
+        // Arch Comps:
+        lifecycle                : "androidx.lifecycle:lifecycle-runtime-ktx:$arch_components_lifecycle_version",
+        archComponents           : "androidx.arch.core:core-runtime:$arch_components_version",
+
+        // Android Support:
+        supportAnnotations       : "androidx.annotation:annotation:$support_version",
+
+        // Android Support Views:
+        appcompat                : "androidx.appcompat:appcompat:$support_version",
+        core                     : "androidx.core:core-ktx:$core_version",
+        cardview                 : "com.android.support:cardview-v7:$support_version",
+        recyclerview             : "androidx.recyclerview:recyclerview:$support_version",
+        materialDesign           : "com.google.android.material:material:$material_design_version",
+        constraintlayout         : "androidx.constraintlayout:constraintlayout:$constraint_version",
+
+        // JWT:
+        jwt                      : "io.jsonwebtoken:jjwt:$jwt_version",
+
+        // JSON:
+        json                     : "org.json:json:$json_version",
+]
+
+// testImplementation / testApi ====
+ext.testDeps = [
+        // JUnit:
+        junit                    : "junit:junit:$junit_version",
+        assertj                  : "org.assertj:assertj-core:$assertj_version",
+
+        // Lifecycle Test
+        lifecycleTest            : "androidx.arch.core:core-testing:$arch_components_version",
+]
+
+// androidTestImplementation / androidTestApi ====
+ext.androidTestDeps = [
+        // JUnit
+        junitrunner: "androidx.test:runner:$junit_runner_version",
+
+        // Espresso:
+        espresso   : "androidx.test.espresso:espresso-core:$espresso_version",
+]
+
+// Gradle dependencies
+ext.gradleDeps = [
+        // Android
+        android         : "com.android.tools.build:gradle:$gradle_version",
+
+        // Kotlin
+        kotlin          : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
+        kotlinExtension : "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+]

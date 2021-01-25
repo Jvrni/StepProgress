@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StepProgress</string>
+    <string name="main_btn_next">Próximo</string>
+    <string name="main_btn_back">Voltar</string>
+</resources>

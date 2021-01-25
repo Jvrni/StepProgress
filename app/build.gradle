@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../buildsystem/information.gradle'
+
+android {
+    compileSdkVersion app.compileSdkVersion
+
+    defaultConfig {
+        applicationId APPLICATION_ID
+
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+
+        versionCode app.versionCode
+        versionName app.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(':stepprogresscore')
+
+    implementation generalDeps.kotlinJdk
+    implementation generalDeps.appcompat
+    implementation generalDeps.core
+
+    implementation generalDeps.materialDesign
+    implementation generalDeps.constraintlayout
+
+    implementation generalDeps.jwt
+    testImplementation testDeps.junit
+    androidTestImplementation androidTestDeps.junitrunner
+    androidTestImplementation androidTestDeps.espresso
+}
